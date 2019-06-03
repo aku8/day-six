@@ -1,43 +1,26 @@
-//Following two lines create an express app
-const express = require("express"); 
+var fs = require("fs");
+
+const express = require("express");
+const path = require("path");
+const logger = require("./src/utilities/middleware/logger");
+
+
+//Init express:
 const app = express();
 
-var properties = new Array();
+//Middleware:
+app.use(logger);
+
 //Body Parser Middlware:
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-//"/link" relates to the url
-app.get("/properties", (req,res) => {
-    // //new object:
-    // properties.push({
-    //     id: 1,
-    //     name: "One",
-    //     location:"Lisbon"
-    // });
-    // //.json helps convert properties array
-    // //into json 
-    res.json(properties);
-});
+//Routes:
+app.use("/api/users", require("./src/api/users-routes"));
+app.use("/api/auth", require("./src/api/auth-routes"));
 
-app.post("/properties", (req,res) => {
-    const property = req.body;
-    // console.log(property);
-    properties.push(property);
-    res.json(property);
+//Port:
+const PORT = process.env.PORT || 5000;
 
-})
-//start listening on port 3000, when you reach it,
-//do the following functions
-
-//the (err) part will run later - takes a few ms
-app.listen(3000, (err) => {
-    //if there's an error listening up:
-    if (err) {
-        console.log("Oops, error");
-        return;
-    }
-    console.log("Server listening port 3000");
-})
-
-console.log("This app runs"); //use node index.js in terminal to run
+//Listen:
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

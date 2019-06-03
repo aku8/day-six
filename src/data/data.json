@@ -1,0 +1,40 @@
+{
+    "users": [
+        {
+            "id": "1",
+            "name": "Byron",
+            "surname": "de Villiers",
+            "cellPhone": "0828073513",
+            "email": "byron@mail.com",
+            "password": "P@ssword",
+            "role": "user"
+        },
+        {
+            "id": "2",
+            "name": "Anina",
+            "surname": "Ku",
+            "cellPhone": "908350399",
+            "email": "aku2018@gmail.com",
+            "password": "lalallalala",
+            "role": "USER"
+        },
+        {
+            "id": "3",
+            "name": "Leah",
+            "surname": "Wang",
+            "cellPhone": "23049238420934",
+            "email": "leah@gmail.com",
+            "password": "sdfsdfsfd",
+            "role": "USER"
+        },
+        {
+            "id": "4",
+            "name": "sarah",
+            "surname": "k",
+            "cellPhone": "23049238420934",
+            "email": "sarah@gmail.com",
+            "password": "sl",
+            "role": "USER"
+        }
+    ]
+}
